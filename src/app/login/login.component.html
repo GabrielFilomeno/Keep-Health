@@ -1,17 +1,17 @@
 
-<div>
+<div id="containerLogin">
     <form (ngSubmit)="entrar()" #loginForm="ngForm">
-        <div>
+        <div id="containerInputs">
             <label for="emailUsuario">Insira seu Email: </label>
-            <input type="email" id="emailUsuario" name="email" [(ngModel)]="login.emailUsuario" #nome="ngModel" placeholder="exemplo@hotmail.com" />
+            <input type="email" id="emailUsuario" class="inputs" name="email" [(ngModel)]="login.emailUsuario" #nome="ngModel" placeholder="exemplo@hotmail.com" />
             <label for="senhaUsuario">Insira sua senha: </label>
-            <input type="password" id="senhaUsuario" name="senha" [(ngModel)]="login.senhaUsuario" #senha="ngModel" placeholder="Insira sua senha" />
+            <input type="password" id="senhaUsuario" class="inputs" name="senha" [(ngModel)]="login.senhaUsuario" #senha="ngModel" placeholder="Insira sua senha" />
         </div>
 
         <div class="formBtns">
-            <button type="submit">Entrar</button>
-            <button type="button">Esqueci a senha</button>
-            <span>Ainda não tem uma conta? crie sua conta <button type="button">Aqui</button></span>
+            <button type="submit" class="btns">Entrar</button>
+            <button type="button" class="btns" (click)="redefinirSenha(this.login.emailUsuario)">Esqueci a senha</button> <br>
+            <span>Ainda não tem um cadastro? <br> Faça seu cadastro <button type="button" (click)="irParaCadastro()">Aqui</button></span>
         </div>
     </form>
 </div>

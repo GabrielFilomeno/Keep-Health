@@ -1,0 +1,21 @@
+#containerInputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 300px;
+    border: 2px solid black;
+    padding: 10px;
+}
+
+#containerInputs {
+    display: flex;
+    flex-direction: column;
+}
+
+.inputs {
+    margin: 5px;
+}
+
+.btns {
+    margin: 5px;
+}
