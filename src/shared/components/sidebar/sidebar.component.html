@@ -1,1 +1,9 @@
-<p>sidebar works!</p>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+<div id="containerSidebar">
+    <div id="containerBtns">
+        <button *ngIf="showButton" (click)="voltarAoTopo()" id="btnTopo"><i class="fa fa-arrow-up"></i></button>
+        <button type="button" class="btns" (click)="rotaProfile()">Perfil</button>
+        <button type="button" class="btns" (click)="rotaDiet()">Dietas</button>
+    </div>
+</div>

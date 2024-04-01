@@ -1,0 +1,33 @@
+#containerGeral {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 800px;
+    margin-top: 150px;
+}
+
+button {
+    width: 80px;
+    height: 40px;
+    border-radius: 5px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+#containerCard  {
+    margin-left: auto;
+    margin-right: auto;
+    width: 250px;
+    margin: 5px;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+#span1, #span2, #span3 {
+    border-bottom: 1px solid black;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}

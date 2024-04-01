@@ -1,5 +1,6 @@
 
 <div id="containerLogin">
+    <h1 id="login">Login</h1>
     <form (ngSubmit)="entrar()" #loginForm="ngForm">
         <div id="containerInputs">
             <label for="emailUsuario">Insira seu Email: </label>
@@ -11,7 +12,7 @@
         <div class="formBtns">
             <button type="submit" class="btns">Entrar</button>
             <button type="button" class="btns" (click)="redefinirSenha(this.login.emailUsuario)">Esqueci a senha</button> <br>
-            <span>Ainda não tem um cadastro? <br> Faça seu cadastro <button type="button" (click)="irParaCadastro()">Aqui</button></span>
+            <span>Ainda não tem um cadastro? <br> Faça seu cadastro <button type="button" class="btns" (click)="irParaCadastro()">Aqui</button></span>
         </div>
     </form>
 </div>

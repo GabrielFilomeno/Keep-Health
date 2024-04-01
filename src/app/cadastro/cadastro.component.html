@@ -1,14 +1,27 @@
 <div id="containerCadastro">
+    <h1 id="cadastro">Cadastro</h1>
     <form (ngSubmit)="cadastrar()" [formGroup]="form">
         <div id="containerInputs">
             <label for="nomeUsuario">Nome do usuário</label>
             <input type="text" id="nomeUsuario" name="nome" formControlName="nome" class="inputs" placeholder="Digite seu nome"/>
 
             <label for="emailUsuario">Email do usuário</label>
-            <input type="email" id="emailUsuario" name="email" formControlName="email" class="inputs" placeholder="plaexemplo@hotmail.com"/>
+            <input type="email" id="emailUsuario" name="email" formControlName="email" class="inputs" placeholder="exemplo@hotmail.com"/>
 
             <label for="dataUsuario">Data de nascimento</label>
             <input type="date" id="dataUsuario" name="data" formControlName="data" class="inputs"/>
+
+            <label for="peso">Peso</label>
+            <input type="number" id="peso" name="peso" formControlName="peso" class="inputs" placeholder="Insira seu peso">
+
+            <label for="altura">Altura</label>
+            <input type="number" id="altura" name="altura" formControlName="altura" class="inputs" placeholder="Insira sua altura">
+
+
+
+            <label for="cep">CEP</label>
+            <input type="text" id="cep" name="cep" formControlName="cep" class="inputs" placeholder="Insira seu CEP">
+            <button type="button"(click)="clickGetCep()">Procurar CEP</button>
 
             <label for="senhaUsuario">Senha do usuário</label>
             <input type="password" id="senhaUsuario" name="senha" formControlName="senha" class="inputs" placeholder="Digite sua senha"/>
@@ -23,3 +36,6 @@
 
         </div>
     </form>
+    <!-- <label for="cep">CEP</label>
+    <input type="text" id="cep" name="cep" [(ngModel)]="cepInfo" class="inputs" placeholder="Insira o CEP da sua rua">
+    <button type="button" (click)="getCep()">Pesquisar</button> -->

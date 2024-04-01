@@ -1,0 +1,17 @@
+<div class="borda-com-titulo">
+    <h1 class="titulo">Dieta</h1>
+<div id="containerGeral">
+    <div id="containerInput">
+        <label for="textSearch"><h2> Procure um alimento: </h2></label>
+        <input type="text" [(ngModel)]="search" id="textSearch" placeholder="Digite o nome do alimento">
+        <button (click)="pesquisar()">Pesquisar</button>
+        <button (click)="resetarPesquisa()">Mostrar todos os</button>
+    </div>
+    
+    <div id="containerCards">
+        <div id="containerCard" *ngFor="let produto of  listaAlimentos"  (click)="onCardClick(produto.id)">
+            <app-card [item]="produto"></app-card>
+        </div>
+    </div>
+</div>
+</div>

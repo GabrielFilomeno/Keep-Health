@@ -2,9 +2,22 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 300px;
     border: 2px solid black;
-    padding: 10px;
+    position: relative;
+    width: 300px;
+    padding: 23px;
+    margin-top: 150px;
+}
+
+#login {
+    background: white;
+    position: absolute;
+    border: 1px solid black;
+    top: -23px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0 10px;
+    font-size: 1.5em;
 }
 
 #containerInputs {
@@ -18,4 +31,9 @@
 
 .btns {
     margin: 5px;
+    padding: 5px;
+}
+
+.btns:hover {
+    cursor: pointer;
 }

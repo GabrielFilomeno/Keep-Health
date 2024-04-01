@@ -1,0 +1,23 @@
+<div id="containerPerfil">
+    <h1>Seu Perfil</h1>
+    <div id="containerDados">
+        <span id="dados">Dados</span>
+        <span>Nome: {{nome}}</span>
+        <span>Email: {{email}}</span>
+        <span>Data: {{data}}</span>
+    </div>
+    <div id="containerEstatisticas">
+        <span id="estatisticas">Estatisticas Corporais</span>
+    <span>Peso: {{peso}} KG</span>
+    <span>Altura: {{ altura | cmParaMetros }}m</span>
+</div>
+    <div id="containerEndereco">
+        <span id="endereco">Endereço</span>
+        <span>CEP: {{endereco.cep}} </span>
+        <span>Logradouro: {{endereco.logradouro}} </span>
+        <span>Bairro: {{endereco.bairro}} </span>
+        <span>Localidade: {{endereco.localidade}} </span>
+        <span>UF: {{endereco.uf}} </span>
+    </div>
+
+</div>

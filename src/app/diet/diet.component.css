@@ -1,0 +1,72 @@
+.borda-com-titulo {
+    border: 2px solid black;
+    position: relative;
+    text-align: center;
+    margin-top: 150px;
+    padding-top: 30px;
+  }
+  
+  .titulo {
+    background: white;
+    position: absolute;
+    border: 1px solid black;
+    top: -33px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0 10px;
+    font-size: 50px;
+  }
+
+#containerGeral {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50vw;
+}
+
+#containerInput {
+    margin-left: 15px;
+}
+
+label {
+    color: black;
+}
+
+#textSearch {
+    padding: 5px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+button {
+    padding: 5px;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+#containerCards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 5px;
+    font-size: large;
+    margin: 10px;
+}
+
+#containerCard  {
+    width: 250px;
+    margin: 5px;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 10px;
+    
+}
+
+#containerCard:hover {
+    cursor: pointer;
+}
+
+app-card {
+    width: 200px;
+}
