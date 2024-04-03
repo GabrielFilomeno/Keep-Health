@@ -1,0 +1,85 @@
+
+#containerPerfil {
+    display: flex;
+    flex-direction: column;
+    margin: 150px 0px;
+    border: 2px solid black;
+    border-radius: 10px;
+    position: relative;
+    padding: 50px;
+
+    #titulo {
+        font-size: 50px;
+        background: white;
+        position: absolute;
+        border: 1px solid black;
+        top: -20px;
+        left: 26%;
+        transform: translateX(-50%);
+        padding: 0 10px;
+    }
+    
+    #containerDados{
+        display: flex;
+        flex-direction: column;
+        border: 2px solid black;
+        border-radius: 10px;
+        position: relative;
+        padding: 20px;
+        margin-top: 30px;
+        
+        #dados {
+            background: white;
+            position: absolute;
+            border: 1px solid black;
+            top: -20px;
+            left: 11%;
+            transform: translateX(-50%);
+            padding: 0 10px;
+        }
+    }
+    
+    #containerEstatisticas{
+        display: flex;
+        flex-direction: column;
+        border: 2px solid black;
+        border-radius: 10px;
+        position: relative;
+        padding: 20px;
+        margin-top: 30px;
+        
+        #estatisticas {
+            background: white;
+            position: absolute;
+            border: 1px solid black;
+            top: -20px;
+            left: 26%;
+            transform: translateX(-50%);
+            padding: 0 10px;
+        }
+    }
+    
+    #containerEndereco {
+        display: flex;
+        flex-direction: column;
+        border: 2px solid black;
+        border-radius: 10px;
+        position: relative;
+        padding: 20px;
+        margin-top: 30px;
+        
+        #endereco {
+            background: white;
+            position: absolute;
+            border: 1px solid black;
+            top: -20px;
+            left: 14%;
+            transform: translateX(-50%);
+            padding: 0 10px;
+        }
+    }
+    
+    span {
+        margin-top: 5px;
+    }
+}

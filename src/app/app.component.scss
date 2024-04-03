@@ -13,11 +13,12 @@
     align-items: end;
     width: 100vw;
     margin: 30px 0px;
+    
+    app-header {
+        margin-right: 250px;
+    }
 }
 
-app-header {
-    margin-right: 250px;
-}
 
 #containerSide {
     position: fixed;

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AddressService } from '../../shared/services/address.service';
 
@@ -8,18 +8,18 @@ import { AddressService } from '../../shared/services/address.service';
   standalone: true,
   imports: [ReactiveFormsModule],
   templateUrl: './cadastro.component.html',
-  styleUrl: './cadastro.component.css'
+  styleUrl: './cadastro.component.scss'
 })
 export class CadastroComponent {
   form = new FormGroup({
-    nome: new FormControl(''),
-    email: new FormControl(''),
-    data: new FormControl(''),
-    peso: new FormControl(''),
-    altura: new FormControl(''),
-    cep: new FormControl(''),
-    senha: new FormControl(''),
-    confirmarSenha: new FormControl('')
+    nome: new FormControl('', Validators.required),
+    email: new FormControl('', Validators.required),
+    data: new FormControl('', Validators.required),
+    peso: new FormControl('', Validators.required),
+    altura: new FormControl('', Validators.required),
+    cep: new FormControl('', Validators.required),
+    senha: new FormControl('', Validators.required),
+    confirmarSenha: new FormControl('', Validators.required)
   });
 
   endereco = {
@@ -98,11 +98,6 @@ export class CadastroComponent {
 
 
   cadastrar() {
-
-    if (!this.form.value.nome || !this.form.value.email || !this.form.value.data || !this.form.value.senha || !this.form.value.confirmarSenha) {
-      alert('Por favor, preencha todos os campos.');
-      return;
-    }
     if (this.endereco.cep == String) {
       alert("Clique em Procurar CEP para confirmar seu CEP")
     } else {

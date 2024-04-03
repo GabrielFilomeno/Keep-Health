@@ -7,7 +7,7 @@ import { CmParaMetrosPipe } from '../../shared/pipes/cm-para-metros.pipe';
   standalone: true,
   imports: [CmParaMetrosPipe],
   templateUrl: './profile.component.html',
-  styleUrl: './profile.component.css'
+  styleUrl: './profile.component.scss'
 })
 export class ProfileComponent {
 

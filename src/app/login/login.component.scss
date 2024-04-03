@@ -1,0 +1,39 @@
+#containerLogin {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 2px solid black;
+    position: relative;
+    width: 300px;
+    padding: 23px;
+    margin-top: 150px;
+    
+    #titulo {
+        background: white;
+        position: absolute;
+        border: 1px solid black;
+        top: -23px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 0 10px;
+        font-size: 1.5em;
+    }
+    
+    #containerInputs {
+        display: flex;
+        flex-direction: column;
+        
+        .inputs {
+            margin: 5px;
+        }
+    }
+    
+    .btns {
+        margin: 5px;
+        padding: 5px;
+        
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}

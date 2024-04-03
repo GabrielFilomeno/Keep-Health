@@ -10,7 +10,7 @@ import { DietDetailComponent } from './diet-detail/diet-detail.component';
   standalone: true,
   imports: [CardComponent, CommonModule, FormsModule, DietDetailComponent],
   templateUrl: './diet.component.html',
-  styleUrl: './diet.component.css'
+  styleUrl: './diet.component.scss'
 })
 export class DietComponent {
 
