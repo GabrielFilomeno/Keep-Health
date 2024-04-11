@@ -8,7 +8,7 @@ export class RoutingServiceService {
 
   constructor(private router: Router) { }
   navigateToCard(id: string): void {
-    const cardsData = JSON.parse(localStorage.getItem('alimentosStorage') || '[]');
+    const cardsData = JSON.parse(localStorage.getItem('dietasStorage') || '[]');
     const cardId = cardsData.find((card: any) => card.id === id);
     if (cardId) {
       this.router.navigate(['/card', id]);

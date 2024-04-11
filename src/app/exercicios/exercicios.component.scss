@@ -1,0 +1,126 @@
+
+
+#containerGeral {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid black;
+    position: relative;
+    width: 50vw;
+    padding: 1.438rem 0rem;
+    padding-top: 2.5rem;
+    margin-top: 9.45rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,1);
+
+    #tituloGeral {
+        background: #59DDDD;
+        position: absolute;
+        border: 1px solid black;
+        top: -19px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 0rem 0.625rem;
+        font-size: 1.5em;   
+    }
+
+    .containerShowAtividades {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 1rem;
+        border: 2px solid black;
+        position: relative;
+        transition: transform 0.3s ease-in-out;
+        box-shadow: 0 4px 8px rgba(0,0,0,1);
+        
+        &:hover {
+            cursor: pointer;
+            transform: scale(1.1);
+        }
+
+        &:active {
+            
+            animation: clique-animation 0.1s ease;
+        }
+
+        @keyframes clique-animation {
+            0% {
+              transform: scale(1);
+            }
+            
+            100% {
+              transform: scale(1);
+            }
+          }
+
+
+        .titulo {
+            display: flex;
+            justify-content: center;
+            position: absolute;
+            background: #59DDDD;
+            border: 1px solid black;
+            top: -17px;
+            padding: 0 10px;
+            font-size: 1.5em;
+            width: 9.3rem;
+        }
+
+        .imagem {
+            width: 15rem;
+            height: 17rem;
+            object-fit: cover;
+        }
+    }
+}
+
+.containerCards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.icone-fechar {
+    margin-left: 8.5rem;
+    padding: 5px;
+
+    &:hover {
+        cursor: pointer;
+        background-color: lightgray;
+        border: 1px solid black;
+    }
+}
+
+.inputs {
+    margin-bottom: 0.938rem;
+}
+
+#containerP{
+    text-align: center; 
+    font-size: 1.3em;
+    line-height: 1.5;
+    width: 90%;
+    padding: 1.25rem;
+    margin-top: 1rem;
+    background-color: rgba(255, 255, 255, 0.507);
+    box-shadow: 0 4px 8px rgba(0,0,0,1);
+}
+
+@media screen and (max-width: 1200px) {
+    #containerGeral {
+        width: 70vw;
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    #containerGeral {
+        width: 80vw;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #containerGeral {
+        width: 90vw;
+        
+    }
+}

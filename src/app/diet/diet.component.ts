@@ -4,53 +4,67 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DietDetailComponent } from './diet-detail/diet-detail.component';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
+import { ButtonModule } from 'primeng/button';
+import { InputTextModule } from 'primeng/inputtext';
 
 @Component({
   selector: 'app-diet',
   standalone: true,
-  imports: [CardComponent, CommonModule, FormsModule, DietDetailComponent],
+  imports: [CardComponent, CommonModule, FormsModule, DietDetailComponent, ToastModule, ButtonModule, InputTextModule],
+  providers: [MessageService],
   templateUrl: './diet.component.html',
   styleUrl: './diet.component.scss'
 })
 export class DietComponent {
 
-  listaAlimentos = [{
-    name: '',
-    imageLink: '',
-    description: '',
+  listaDietas = [{
+    nome: '',
+    linkImagem: '',
+    descricao: '',
     id: '',
   }]
 
-  constructor(private router: Router) {
-    const alimentos: any = localStorage.getItem('alimentosStorage');
+  constructor(
+    private router: Router,
+    private messageService: MessageService
+  ) {
+    const alimentos: any = localStorage.getItem('dietasStorage');
   
       if (alimentos) {
-        this.listaAlimentos = JSON.parse(alimentos);
+        this.listaDietas = JSON.parse(alimentos);
   }
 }
   search: string | undefined;
   resetLista: any;
 
   ngOnInit(): void {
-    this.resetLista = this.listaAlimentos;
+    this.resetLista = this.listaDietas;
   }
 
   pesquisar() {
     if (!this.search) {
-      alert('Preencha o campo para pesquisar');
+      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Preencha o campo para pesquisar.' });
     } else {
-      let resultado = this.listaAlimentos.filter(item => item.name === this.search);
+      const textoNormalizado = this.search.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+  
+      let resultado = this.listaDietas.filter(item => 
+        item.nome.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase() === textoNormalizado
+      );
+  
       if (resultado.length === 0) {
-        alert('Alimento não encontrado');
+        this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Dieta não encontrado.' });
       } else {
-        this.listaAlimentos = resultado;
+        this.listaDietas = resultado;
         this.search = '';
       }
     }
   }
+  
 
   resetarPesquisa() {
-    this.listaAlimentos = this.resetLista;
+    this.listaDietas = this.resetLista;
   }
 
   onCardClick(cardId: string): void {

@@ -1,5 +1,18 @@
-<div id="container">
-    <button (click)="rotaHome()">Inicío</button>
-    <button (click)="rotaDiet()">Login</button>
-    <button (click)="rotaProfile()">Cadastro</button>
-</div>
+    <div id="menuWidthMin768px" class="card" >
+        <div class="dock-window">
+            <p-dock  [model]="menuWidthMin768px" [position]="'top'">
+                <ng-template pTemplate="menuWidthMin768px" let-menuWidthMin768px>
+                    <p-button label="{{menuWidthMin768px.label}}" [text]="true" [raised]="true" (click)="menuWidthMin768px.rota()"></p-button>
+                </ng-template>
+            </p-dock>
+        </div>
+    </div>
+    <div id="menuWidthMax768px" class="card" >
+        <div class="dock-window">
+            <p-dock  [model]="menuWidthMax768px" [position]="'top'">
+                <ng-template pTemplate="menuWidthMax768px" let-menuWidthMax768px>
+                    <p-button label="{{menuWidthMax768px.label}}" [text]="true" [raised]="true" (click)="menuWidthMax768px.rota()"></p-button>
+                </ng-template>
+            </p-dock>
+        </div>
+    </div>

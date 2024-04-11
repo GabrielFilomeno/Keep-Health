@@ -2,7 +2,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
   name: 'cmParaMetros',
-  standalone: true
 })
 export class CmParaMetrosPipe implements PipeTransform {
 

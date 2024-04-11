@@ -1,10 +1,16 @@
-button {
-    margin: 10px;
-    padding: 10px 25px;
-    letter-spacing: 1px;
-    border-radius: 10px;
 
-    &:hover {
-        cursor: pointer;
+p-button {
+    background-color: #59DDDD;
+}
+#menuWidthMax768px{
+    display: none;
+}
+
+@media screen and (max-width: 763px) {
+    #menuWidthMax768px{
+        display: block;
     }
+    #menuWidthMin768px {
+        display: none;
+    };
 }

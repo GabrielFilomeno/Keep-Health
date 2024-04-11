@@ -1,17 +1,17 @@
 <div id="containerGeral">
-    <button type="button" (click)="voltar()">Voltar</button>
+    <p-button type="button" (click)="voltar()" styleClass="custom-btns" [raised]="true" label="Voltar"></p-button>
     <div *ngIf="card" id="containerCard">
-        <img [src]="card.imageLink" alt="Alimento" id="imagem">
+        <img [src]="card.linkImagem" alt="Alimento" class="imagem">
 
-        <h2>{{card.name}}</h2>
+        <h2 id="titulo">{{card.nome}}</h2>
         <div id="span1">
-            <span>{{card.description}}</span>
+            <span>{{card.descricao}}</span>
         </div>
         <div id="span2">
-            <span>Quantidade de calorias: {{card.qttCalories}}</span>
+            <span>Calorias por dia: {{card.calorias}}</span>
         </div>
         <div id="span3">
-            <span>Quantidade maxima para comer por dia: {{card.qttDaysFeed}}</span>
+            <span>Refeições por dia: {{card.refeicoes}}</span>
         </div>
     </div>
 </div>

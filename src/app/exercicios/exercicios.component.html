@@ -1,0 +1,57 @@
+<div id="containerGeral">
+    <h1 id="tituloGeral">Exercícios</h1>
+
+    <div class="card flex justify-content-center">
+        <p-button (click)="showDialog()" icon="pi pi-external-link" label="Programar Atividade"></p-button>
+        <p-dialog header="Header" [(visible)]="visible" [modal]="true" [style]="{ width: '50rem' }"
+            [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }">
+            <ng-template pTemplate="header">
+                <div class="inline-flex align-items-center justify-content-center gap-2">
+                    <h1 class="font-bold white-space-nowrap">Escolha a atividade</h1>
+                </div>
+            </ng-template>
+            <div class="containerShowAtividades" *ngFor="let exercicio of  atividades; let i = index"
+                (click)="op.toggle($event); capturarId(exercicio.id); identificarOverlay(i, op)">
+
+                <img [src]="exercicio.linkImagem" alt="atividade" class="imagem">
+                <h3 class="titulo">{{exercicio.atividade}}</h3>
+
+                <p-overlayPanel #op>
+                    <ng-template pTemplate="content">
+                        <h4>Programe sua atividade <i class="icone-fechar pi pi-times" (click)="op.hide()"></i></h4>
+
+                        <label for="data">Data e horário da atividade</label>
+                        <p-calendar id="data" class="inputs" [(ngModel)]="data" [showTime]="true" [showIcon]="true"
+                            dateFormat="dd/mm/yy"></p-calendar>
+
+                        <label for="km">Distância (opcional)</label>
+                        <p-inputNumber [(ngModel)]="distancia" inputId="km" class="inputs" suffix=" KM"
+                            placeholder="KM"></p-inputNumber>
+
+                        <label for="tempo">Duração da atividade (opcional)</label>
+                        <p-calendar [timeOnly]="true" hourFormat="24" id="tempo" class="inputs" [(ngModel)]="tempoAtividade"
+                            placeholder="Duração da atividade"></p-calendar>
+
+                        <p-toast></p-toast>
+                        <p-button type="button" [style]="{ width: '18rem' }" icon="pi pi-check" label="Salvar"
+                            (click)="salvarAtividade()"></p-button>
+                    </ng-template>
+                </p-overlayPanel>
+            </div>
+            <ng-template pTemplate="footer">
+                <p-button (click)="visible = false" label="Voltar" pAutoFocus [autofocus]="true"></p-button>
+            </ng-template>
+        </p-dialog>
+    </div>
+    <div class="containerCards">
+        <div id="containerP" *ngIf="listaAtividades && listaAtividades.length === 0">
+            <h2>🌟 Não há atividades ativas no momento 🌟</h2>
+            <p>
+              Lembre-se, cada pequeno passo conta na sua jornada. Não importa o quão pequena seja a atividade, ela pode levar a grandes mudanças ao longo do tempo. Então, que tal começar uma nova atividade agora? Você é capaz de alcançar tudo o que se propõe a fazer. Vamos lá, você consegue! 💪
+            </p>
+        </div>
+        <div *ngFor="let exercicio of  listaAtividades">
+            <app-card-atividades [atividades]="exercicio" (chamarRenderizarLista)="renderizarLista()"></app-card-atividades>
+        </div>
+    </div>
+</div>

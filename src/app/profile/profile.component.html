@@ -4,12 +4,22 @@
         <span id="dados">Dados</span>
         <span>Nome: {{nome}}</span>
         <span>Email: {{email}}</span>
-        <span>Data: {{data}}</span>
+        <span>Idade: {{ data | calcularIdade}}</span>
     </div>
     <div id="containerEstatisticas">
-        <span id="estatisticas">Estatisticas Corporais</span>
-    <span>Peso: {{peso}} KG</span>
-    <span>Altura: {{ altura | cmParaMetros }}m</span>
+        <span id="estatisticas">Estatisticas</span>
+        <div class="containerSpan">
+            <span>Peso: {{peso}} KG</span>
+            <span>Altura: {{ altura | cmParaMetros }}m</span>
+        </div>
+        <p-overlayPanel #op>
+            <ng-template pTemplate="content">
+                <h4>Atualizar peso <i class="icone-fechar pi pi-times" (click)="op.hide()"></i></h4>
+                <p-inputNumber [(ngModel)]="peso" mode="decimal" inputId="withoutgrouping" [useGrouping]="false" suffix=" KG" [style]="{ padding: '5px' }"> </p-inputNumber>
+                <p-button (click)="atualizarPeso(); op.hide()" label="Atualizar peso" icon="pi pi-check"></p-button>
+            </ng-template>
+        </p-overlayPanel>
+        <p-button (click)="op.toggle($event)" icon="pi pi-external-link" label="Atualizar peso"></p-button>
 </div>
     <div id="containerEndereco">
         <span id="endereco">Endereço</span>

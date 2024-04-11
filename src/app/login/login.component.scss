@@ -1,18 +1,30 @@
 #containerLogin {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
     border: 2px solid black;
     position: relative;
-    width: 300px;
-    padding: 23px;
-    margin-top: 150px;
+    width: 50vw;
+    padding: 1.438rem;
+    margin-top: 9.45rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,1);
+
+    #containerSombra {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 80%;
+        padding-top: 0.8rem;
+        padding-bottom: 0.8rem;
+        box-shadow: 0 4px 8px rgba(0,0,0,1);
+        background-color: rgba(255, 255, 255, 0.507);
+    }
     
     #titulo {
-        background: white;
+        background: #59DDDD;
         position: absolute;
         border: 1px solid black;
-        top: -23px;
+        top: -19px;
         left: 50%;
         transform: translateX(-50%);
         padding: 0 10px;
@@ -27,13 +39,34 @@
             margin: 5px;
         }
     }
-    
-    .btns {
-        margin: 5px;
-        padding: 5px;
-        
-        &:hover {
-            cursor: pointer;
-        }
+}
+@media screen and (max-width: 1200px) {
+    #containerLogin {
+        width: 70vw;
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    #containerLogin {
+        width: 79vw;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #containerLogin {
+        width: 90vw;   
+    }
+    #containerSombra {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #containerLogin {
+        width: 90vw;
+        padding: 1.438rem 0.5rem;
+    }
+    #containerSombra {
+        width: 99% !important;
     }
 }

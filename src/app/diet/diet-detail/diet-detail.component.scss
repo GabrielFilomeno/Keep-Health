@@ -1,37 +1,63 @@
 #containerGeral {
     display: flex;
-    flex-direction: row;
     justify-content: center;
-    position: relative;
-    width: 800px;
-    margin-top: 150px;
+    margin-top: 9.45rem;
+    width: 100vw;   
     
-    button {
-        position: absolute;
-        width: 80px;
-        height: 40px;
-        left: 0;
-        border-radius: 5px;
-
-        &:hover {
-            cursor: pointer;
-        }
+    p-button{
+        position: relative;
+        right: 10rem;
     }
     
     #containerCard  {
-        
-        margin-left: auto;
-        margin-right: auto;
-        width: 250px;
-        margin: 5px;
-        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: fixed;
+        width: 14.625rem;
+        padding: 1.25rem;
         border: 2px solid black;
-        border-radius: 10px;
+        background-color: rgba(255, 255, 255, 0.507);
+        box-shadow: 0 4px 8px rgba(0,0,0,1);
+
+        #titulo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 10.938rem;
+            height: 2.813rem;
+            background: #59DDDD;
+            position: absolute;
+            border: 1px solid black;
+            top: -22px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 0 0.625rem;
+            line-height: 1;
+            text-align: center;
+        }
+
+        .imagem {
+            width: 11.938rem;
+            height: 11.25rem;
+            object-fit: cover;
+        }
         
         #span1, #span2, #span3 {
             border-bottom: 1px solid black;
-            margin-bottom: 10px;
-            padding-bottom: 10px;
+            margin-top: 0.625rem;
+            margin-bottom: 0.625rem;
+            padding-bottom: 0.625rem;
+            text-align: center;
         }
     }
 }
+
+@media screen and (max-width: 480px) {
+        p-button{
+            right: auto !important;
+            top: 450px;
+        }
+        
+    }
+    

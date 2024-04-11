@@ -1,11 +1,115 @@
-/* You can add global styles to this file, and also import other style files */
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-size: x-large;
-    border-radius: 10px;
-  }
+@import "primeicons/primeicons.css";
 
+* {
+  box-sizing: border-box;
+  border-radius: 10px;
+  font-size: large;
+}
+body {
+  display: block;
+  height: 100vh;
+  background-image: url('../src/assets/Img/background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.custom-btns {
+  padding: 0.625rem;
+  margin: 5px;
+}
+
+.p-dock-list-container{
+  display: flex;
+  justify-content: center;
+  width: 65rem;
+  height: 9.5rem;
+}
+
+.p-element .p-dock-link {
+  width: 8rem;
+}
+
+.p-inputtext {
+  box-shadow: 0 4px 8px rgba(0,0,0,1);
+  width: 15rem;
+  height: 1.5rem;
+}
+
+.p-dialog-header {
+  background-color: #59DDDD;
+}
+
+.p-dialog-content {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: #b2FFFF;
+}
+
+.p-dialog-footer{
+  padding-top: 10px;
+  background-color: #b2FFFF;
+}
+
+.p-overlaypanel-content{ 
+  display: flex;
+  flex-direction: column;
+}
+
+.p-datepicker-trigger{
+  width: 2.5rem;
+  height: 1.5rem;
+}
+
+@media screen and (max-width: 1200px) {
+  .p-dock-list-container{
+      width: 93vw;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .p-dock-list-container {
+      width: 90vw;
+  }
+  .p-element .p-dock-link {
+    width: 6rem;
+    padding: 10px;
+  }
+  .p-dock-item {
+    padding: 0px
+  }
+  .p-ripple.p-element.p-button.p-component.p-button-raised.p-button-text {
+    width: 5.5rem;
+    padding: 10px 5px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .p-dock-list-container {
+      width: 90vw;
+      
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .p-dock-list-container{
+    width: 93vw;
+}
+  .p-ripple.p-element.p-button.p-component.p-button-raised.p-button-text {
+    width: 4.5rem;
+    padding: 10px 5px;
+  }
+  .p-button-label {
+    font-size: 0.9rem;
+  }
+  .p-component-overlay-enter.ng-tns-c460263271-0 {
+  z-index: 0 !important;
+}
+.ng-trigger.ng-trigger-panelState.ng-tns-c460263271-0{
+  width: 50vw;
+}
+}

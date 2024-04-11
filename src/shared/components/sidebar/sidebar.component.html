@@ -1,9 +1,17 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-
-<div id="containerSidebar">
-    <div id="containerBtns">
-        <button *ngIf="showButton" (click)="voltarAoTopo()" id="btnTopo"><i class="fa fa-arrow-up"></i></button>
-        <button type="button" class="btns" (click)="rotaProfile()">Perfil</button>
-        <button type="button" class="btns" (click)="rotaDiet()">Dietas</button>
+<div id="containerSideBar">
+    <div class="card flex justify-content-center">
+        <p-sidebar [(visible)]="sidebarVisible">
+            <h1>Menu Lateral</h1>
+            <div id="sideBarAberto">
+                <p-button type="button" class="btns" (click)="rotaProfile()">Perfil</p-button>
+                <p-button type="button" class="btns" (click)="rotaExercicios()">Exercícios</p-button>
+                <p-button type="button" class="btns" (click)="rotaDiet()">Dietas</p-button>
+            </div>
+        </p-sidebar>
+        <p-button (click)="sidebarVisible = true" icon="pi pi-bars"></p-button>
     </div>
+</div>
+<div>
+    <button *ngIf="showButton" (click)="voltarAoTopo()" id="btnTopo"><span
+            class="pi pi-angle-double-up"></span></button>
 </div>

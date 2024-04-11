@@ -1,0 +1,15 @@
+<div class="container">
+
+    <img [src]="atividades?.linkImagem" alt="atividade" class="imagem">
+    
+    <h3 class="titulo">{{atividades?.atividade}}</h3>
+    
+    <span class="spanText">Data: {{atividades?.data | date:'dd/MM/yyyy'}}</span>
+    <span class="spanText">Horario: {{atividades?.data | date:  'HH:mm':'-0300'}}</span>
+    
+    <span class="spanText" *ngIf="atividades?.distancia !== 0">Distância: {{atividades?.distancia}}KM</span>
+    
+    <span class="spanText" *ngIf="atividades?.tempoAtividade !== '2024-02-01T03:00:00.000Z'">Duração: {{atividades?.tempoAtividade | date:  'HH:mm':'-0300'}}</span>
+
+    <p-button (click)="fecharAtividade(atividades)">Fechar Atividade</p-button>
+</div>

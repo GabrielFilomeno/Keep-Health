@@ -1,17 +1,16 @@
 <div class="borda-com-titulo">
-    <h1 class="titulo">Dieta</h1>
+    <h1 class="titulo">Dietas</h1>
 <div id="containerGeral">
     <div id="containerInput">
-        <label for="textSearch"><h2> Procure um alimento: </h2></label>
-        <input type="text" [(ngModel)]="search" id="textSearch" placeholder="Digite o nome do alimento">
-        <button (click)="pesquisar()">Pesquisar</button>
-        <button (click)="resetarPesquisa()">Mostrar todos os</button>
+        <label for="textSearch"><h2> Procure uma dieta: </h2></label>
+        <input type="text" [(ngModel)]="search" id="textSearch" pInputText placeholder="Digite o nome da dieta">
+        <p-toast position="center"></p-toast>
+        <p-button type="button" (click)="pesquisar()" styleClass="custom-btns" [raised]="true" label="Pesquisar" icon="pi pi-search"></p-button>
+        <p-button type="button" (click)="resetarPesquisa()" styleClass="custom-btns" [raised]="true" label="Mostrar todas as dietas" ></p-button>
     </div>
     
-    <div id="containerCards">
-        <div id="containerCard" *ngFor="let produto of  listaAlimentos"  (click)="onCardClick(produto.id)">
+    <div id="containerCards" *ngFor="let produto of  listaDietas"  (click)="onCardClick(produto.id)">
             <app-card [item]="produto"></app-card>
-        </div>
     </div>
 </div>
 </div>

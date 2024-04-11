@@ -1,18 +1,20 @@
 
 <div id="containerLogin">
     <h1 id="titulo">Login</h1>
-    <form (ngSubmit)="entrar()" #loginForm="ngForm">
+    <form (ngSubmit)="entrar()" #loginForm="ngForm" id="containerSombra">
         <div id="containerInputs">
             <label for="emailUsuario">Insira seu Email: </label>
-            <input type="email" id="emailUsuario" class="inputs" name="email" [(ngModel)]="login.emailUsuario" #nome="ngModel" placeholder="exemplo@hotmail.com" />
+            <input type="email" id="emailUsuario" class="inputs" name="email" pInputText [(ngModel)]="login.emailUsuario" #nome="ngModel" placeholder="exemplo@hotmail.com" />
             <label for="senhaUsuario">Insira sua senha: </label>
-            <input type="password" id="senhaUsuario" class="inputs" name="senha" [(ngModel)]="login.senhaUsuario" #senha="ngModel" placeholder="Insira sua senha" />
+            <p-password type="password" id="senhaUsuario" class="inputs" name="senha" [toggleMask]="true" [(ngModel)]="login.senhaUsuario" #senha="ngModel" placeholder="Insira sua senha" />
         </div>
 
         <div class="formBtns">
-            <button type="submit" class="btns">Entrar</button>
-            <button type="button" class="btns" (click)="redefinirSenha(this.login.emailUsuario)">Esqueci a senha</button> <br>
-            <span>Ainda não tem um cadastro? <br> Faça seu cadastro <button type="button" class="btns" (click)="irParaCadastro()">Aqui</button></span>
+            <p-toast position="center"></p-toast>
+            <p-button type="submit" styleClass="custom-btns" [raised]="true" label="Entrar"></p-button>
+            <p-button type="button" (click)="redefinirSenha(this.login.emailUsuario)" styleClass="custom-btns" [raised]="true" label="Esqueci a senha"></p-button>
+             <br>
+            <span>Ainda não tem um cadastro? <br> Clique em cadastrar <br><p-button type="button" (click)="irParaCadastro()" styleClass="custom-btns" [raised]="true" label="Cadastrar"></p-button></span>
         </div>
     </form>
 </div>

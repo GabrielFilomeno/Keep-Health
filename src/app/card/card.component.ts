@@ -8,6 +8,6 @@ import { Component, Input } from '@angular/core';
   styleUrl: './card.component.scss'
 })
 export class CardComponent {
-  @Input() item: {name: string; imageLink: string; description: string;} | undefined;
-  @Input() novaLista: {name: string; imageLink: string; description: string;} | undefined;
+  @Input() item: {nome: string; linkImagem: string; descricao: string;} | undefined;
+  @Input() novaLista: {nome: string; linkImagem: string; descricao: string;} | undefined;
 }

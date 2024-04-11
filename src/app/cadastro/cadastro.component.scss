@@ -1,27 +1,79 @@
 #titulo {
     border: 1px solid black;
-    background: white;
+    background: #59DDDD;
     position: absolute;
-    top: 130px;
+    top: 8.5rem;
     left: 50%;
     transform: translateX(-50%);
-    padding: 0 10px;
+    padding: 0 0.625rem;
     font-size: 1.5em;
 }
 #containerInputs {
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    width: 300px;
+    width: 50vw;
     border: 2px solid black;
-    padding: 25px;
-    margin-top: 150px;
-    
+    padding: 1.563rem;
+    margin-top: 9.450rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,1);
+
+    #containerSombra {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 80%;
+        padding-bottom: 0.8rem;
+        box-shadow: 0 4px 8px rgba(0,0,0,1);
+        background-color: rgba(255, 255, 255, 0.507);
+    }
+
+    label{
+        margin-top: 15px;
+    }
     .inputs {
         margin: 5px;
-    }
-    
-    .btns {
-        margin: 5px;
+        padding: 5px;   
     }
 }
+
+.classe-erro-input {
+    color: red ;
+    border: 2px solid red;
+}
+
+.classe-erro {
+    color: red;
+}
+
+@media screen and (max-width: 1200px) {
+    #containerInputs {
+        width: 70vw;
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    #containerInputs {
+        width: 80vw;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #containerInputs {
+        width: 90vw;
+        padding: 1.563rem 1rem;
+    }
+    #containerSombra {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #containerInputs {
+        width: 90vw;
+        padding: 1.438rem 0.5rem;
+    }
+    #containerSombra {
+        width: 99% !important;
+    }
+}
+  

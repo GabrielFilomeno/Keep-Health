@@ -2,91 +2,125 @@
     <h1 id="titulo">Cadastro</h1>
     <form (ngSubmit)="cadastrar()" [formGroup]="form">
         <div id="containerInputs">
-            <label for="nomeUsuario">Nome do usuário</label>
-            <input 
-                type="text" 
-                name="nome" 
-                id="nomeUsuario" 
-                class="inputs" 
-                formControlName="nome" 
-                placeholder="Digite seu nome"
-            />
+            <div id="containerSombra">
+                <label for="nomeUsuario">* Nome do usuário</label>
+                <input type="text" name="nome" id="nomeUsuario" class="inputs p-inputtext-lg" pInputText
+                    aria-describedby="username-help" formControlName="nome" placeholder="Digite seu nome"
+                    [ngClass]="{'classe-erro-input': form.controls.nome.errors && form.controls.nome.touched}" />
 
-            <label for="emailUsuario">Email do usuário</label>
-            <input 
-                type="email" 
-                name="email" 
-                id="emailUsuario" 
-                class="inputs" 
-                formControlName="email" 
-                placeholder="exemplo@hotmail.com"
-            />
+                <small [ngClass]="{'classe-erro': form.invalid}" *ngIf="
+                    form.controls.nome.touched &&
+                    form.controls.nome.errors 
+                    && form.controls.nome.errors['required']">
+                    Campo obrigatório*
+                </small>
+                <small [ngClass]="{'classe-erro': form.invalid}" *ngIf="
+                    form.controls.nome.touched &&
+                    form.controls.nome.errors 
+                    && form.controls.nome.errors">
+                    O nome tem que ter pelo menos 3 caracteres*
+                </small>
 
-            <label for="dataUsuario">Data de nascimento</label>
-            <input 
-                type="date" 
-                name="data" 
-                id="dataUsuario" 
-                class="inputs"
-                formControlName="data" 
-            />
-                
-            <label for="peso">Peso</label>
-            <input 
-                type="number"
-                name="peso" 
-                id="peso" 
-                class="inputs" 
-                formControlName="peso" 
-                placeholder="Insira seu peso"
-            />
+                <label for="emailUsuario">* Email do usuário</label>
+                <input type="email" name="email" id="emailUsuario" class="inputs" pInputText formControlName="email"
+                    placeholder="exemplo@hotmail.com"
+                    [ngClass]="{'classe-erro-input': form.controls.email.errors && form.controls.email.touched}" />
+                <small [ngClass]="{'classe-erro': form.invalid}" class="span-error" *ngIf="
+                form.controls.email.touched &&
+                form.controls.email.errors 
+                && form.controls.email.errors['required']">
+                    Campo obrigatório*
+                </small>
+                <small [ngClass]="{'classe-erro': form.invalid}" class="span-error" *ngIf="
+                form.controls.email.touched &&
+                form.controls.email.errors 
+                && form.controls.email.errors">
+                    Email invalido*
+                </small>
 
-            <label for="altura">Altura</label>
-            <input 
-                type="number" 
-                name="altura" 
-                id="altura" 
-                class="inputs"
-                formControlName="altura" 
-                placeholder="Insira sua altura"
-            >
+                <label for="dataUsuario">* Data de nascimento</label>
+                <p-calendar type="date" name="data" id="dataUsuario" class="inputs" formControlName="data"
+                    dateFormat="dd/mm/yy" placeholder="dd/mm/aaaa" [inputStyle]="{'width': '100%', 'padding': '5px'}"
+                    [ngClass]="{'classe-erro-input': form.controls.data.errors && form.controls.data.touched}" />
+                <small [ngClass]="{'classe-erro': form.invalid}" class="span-error" *ngIf="
+                form.controls.data.touched &&
+                form.controls.data.errors 
+                && form.controls.data.errors['required']">
+                    Campo obrigatório*
+                </small>
 
-            <label for="cep">CEP</label>
-            <input 
-                type="text" 
-                name="cep" 
-                id="cep" 
-                class="inputs"
-                formControlName="cep" 
-                placeholder="Insira seu CEP"
-            >
-            <button type="button"(click)="clickGetCep()">Procurar CEP</button>
+                <label for="peso">* Peso</label>
+                <input type="number" name="peso" id="peso" class="inputs" pInputText formControlName="peso"
+                    placeholder="Insira seu peso"
+                    [ngClass]="{'classe-erro-input': form.controls.peso.errors && form.controls.peso.touched}" />
+                <small [ngClass]="{'classe-erro': form.invalid}" class="span-error" *ngIf="
+                form.controls.peso.touched &&
+                form.controls.peso.errors 
+                && form.controls.peso.errors['required']">
+                    Campo obrigatório*
+                </small>
 
-            <label for="senhaUsuario">Senha do usuário</label>
-            <input 
-                type="password" 
-                name="senha" 
-                id="senhaUsuario" 
-                class="inputs" 
-                formControlName="senha" 
-                placeholder="Digite sua senha"
-            />
+                <label for="altura">* Altura</label>
+                <input type="number" name="altura" id="altura" class="inputs" pInputText formControlName="altura"
+                    placeholder="Insira sua altura"
+                    [ngClass]="{'classe-erro-input': form.controls.altura.errors && form.controls.altura.touched}" />
+                <small [ngClass]="{'classe-erro': form.invalid}" class="span-error" *ngIf="
+                form.controls.altura.touched &&
+                form.controls.altura.errors 
+                && form.controls.altura.errors['required']">
+                    Campo obrigatório*
+                </small>
 
-            <label for="senhaUsuario">Confirmar senha</label>
-            <input 
-                type="password" 
-                name="confirmarSenha" 
-                id="confirmarSenha" 
-                class="inputs" 
-                formControlName="confirmarSenha" 
-                placeholder="Confirme a senha"
-            />
+                <label for="cep">* CEP</label>
+                <input type="text" name="cep" id="cep" class="inputs" pInputText formControlName="cep"
+                    placeholder="Insira seu CEP"
+                    [ngClass]="{'classe-erro-input': form.controls.cep.errors && form.controls.cep.touched}" />
+                <small [ngClass]="{'classe-erro': form.invalid}" class="span-error" *ngIf="
+                form.controls.cep.touched &&
+                form.controls.cep.errors 
+                && form.controls.cep.errors['required']">
+                    Campo obrigatório*
+                </small>
+                <p-button type="button" styleClass="custom-btns" (click)="clickGetCep()" [raised]="true" severity="info"
+                    label="* Procurar CEP"></p-button>
 
-            <div class="formBtns">
-                <button type="submit" class="btns">Cadastrar</button>
-                <button type="button" class="btns" (click)="voltar()">Voltar</button>
+                <label for="senhaUsuario">* Senha do usuário</label>
+                <p-password type="password" name="senha" id="senhaUsuario" class="inputs" [toggleMask]="true"
+                    formControlName="senha" placeholder="Digite sua senha"
+                    [inputStyle]="{'width': '100%', 'padding': '5px'}"
+                    [ngClass]="{'classe-erro-input': form.controls.senha.errors && form.controls.senha.touched}" />
+                <small [ngClass]="{'classe-erro': form.invalid}" class="span-error" *ngIf="
+                form.controls.senha.touched &&
+                form.controls.senha.errors 
+                && form.controls.senha.errors['required']">
+                    Campo obrigatório*
+                </small>
+                <small [ngClass]="{'classe-erro': form.invalid}" class="span-error" *ngIf="
+                form.controls.senha.touched &&
+                form.controls.senha.errors 
+                && form.controls.senha.errors">
+                    A senha deve conter pelo menos 3 caracteres*
+                </small>
+
+                <label for="senhaUsuario">* Confirmar senha</label>
+                <p-password type="password" name="confirmarSenha" id="confirmarSenha" class="inputs" [toggleMask]="true"
+                    formControlName="confirmarSenha" placeholder="Confirme a senha"
+                    [inputStyle]="{'width': '100%', 'padding': '5px'}"
+                    [ngClass]="{'classe-erro-input': form.controls.confirmarSenha.errors && form.controls.confirmarSenha.touched}" />
+                <small [ngClass]="{'classe-erro': form.invalid}" class="span-error" *ngIf="
+                form.controls.confirmarSenha.touched &&
+                form.controls.confirmarSenha.errors 
+                && form.controls.confirmarSenha.errors['required']">
+                    Campo obrigatório*
+                </small>
+
+                <div class="formBtns">
+                    <p-toast position="center"></p-toast>
+                    <p-button type="submit" styleClass="custom-btns" [raised]="true" label="Cadastrar"></p-button>
+                    <p-button type="button" (click)="voltar()" [style]="{'background-color': 'gray'}"
+                        styleClass="custom-btns" [raised]="true" label="Voltar"></p-button>
+                </div>
             </div>
-
         </div>
     </form>
 </div>
