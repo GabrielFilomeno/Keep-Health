@@ -34,46 +34,48 @@ export class LoginComponent {
     if (!this.login.emailUsuario) {
       this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Preencha o email.' });
     } else if (!this.login.senhaUsuario) {
-      
+
       this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Preencha a senha.' });
 
     } else if (dadosUsuarios) {
 
-    const listaUsuarios = JSON.parse(dadosUsuarios);
+      const listaUsuarios = JSON.parse(dadosUsuarios);
 
-    const usuarioValido = listaUsuarios.find((usuario: { emailUsuario: string; senhaUsuario: string; }) => 
-      usuario.emailUsuario === this.login.emailUsuario && usuario.senhaUsuario === this.login.senhaUsuario
-  );
-  if (usuarioValido) {
+      const usuarioValido = listaUsuarios.find((usuario: {idUsuario: number, emailUsuario: string; senhaUsuario: string; }) =>
+        usuario.emailUsuario === this.login.emailUsuario && usuario.senhaUsuario === this.login.senhaUsuario
+      );
+      if (usuarioValido) {
 
-    this.router.navigate(['/home']);
-  } else {
-    this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Email ou senha incorretos.' });
-  }
-} else {
-  this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Não há usuários cadastrados.' });
-}
+        let idUsuario = usuarioValido.idUsuario;
+        localStorage.setItem('idUsuarioLogado', JSON.stringify(idUsuario))
 
-}
-
-redefinirSenha(emailUsuario: string) {
-  const dadosUsuarios = localStorage.getItem('dadosUsuario');
-  if (dadosUsuarios) {
-    const listaUsuarios = JSON.parse(dadosUsuarios);
-    const usuarioIndex = listaUsuarios.findIndex((usuario: any) => usuario.emailUsuario === emailUsuario);
-
-    if (usuarioIndex !== -1) {
-      confirm('Você deseja redefinir sua senha para a senha padrão? "a1b2c4d4"');
-      listaUsuarios[usuarioIndex].senhaUsuario = 'a1b2c4d4';
-      localStorage.setItem('dadosUsuario', JSON.stringify(listaUsuarios));
-      alert('Sua senha foi redefinida para a senha padrão. Por favor, faça o login utilizando a nova senha: a1b2c4d4');
+        this.router.navigate(['/home']);
+      } else {
+        this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Email ou senha incorretos.' });
+      }
     } else {
-      alert('Usuário não encontrado.');
+      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Não há usuários cadastrados.' });
     }
-  } else {
-    alert('Não há usuários cadastrados.');
   }
-}
+
+  redefinirSenha(emailUsuario: string) {
+    const dadosUsuarios = localStorage.getItem('dadosUsuario');
+    if (dadosUsuarios) {
+      const listaUsuarios = JSON.parse(dadosUsuarios);
+      const usuarioIndex = listaUsuarios.findIndex((usuario: any) => usuario.emailUsuario === emailUsuario);
+
+      if (usuarioIndex !== -1) {
+        confirm('Você deseja redefinir sua senha para a senha padrão? "a1b2c4d4"');
+        listaUsuarios[usuarioIndex].senhaUsuario = 'a1b2c4d4';
+        localStorage.setItem('dadosUsuario', JSON.stringify(listaUsuarios));
+        alert('Sua senha foi redefinida para a senha padrão. Por favor, faça o login utilizando a nova senha: a1b2c4d4');
+      } else {
+        alert('Usuário não encontrado.');
+      }
+    } else {
+      alert('Não há usuários cadastrados.');
+    }
+  }
 
   irParaCadastro() {
     this.router.navigate(['/cadastro']);

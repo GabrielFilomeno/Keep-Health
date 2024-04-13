@@ -2,10 +2,10 @@ import { Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
-import { DietComponent } from './diet/diet.component';
 import { ProfileComponent } from './profile/profile.component';
-import { DietDetailComponent } from './diet/diet-detail/diet-detail.component';
 import { ExerciciosComponent } from './exercicios/exercicios.component';
+import { verificarLogadoGuard } from '../shared/guardaRotas/verificar-logado.guard';
+
 
 export const routes: Routes = [
 
@@ -19,7 +19,8 @@ export const routes: Routes = [
     },
     {
         path: 'home',
-        component: HomeComponent
+        component: HomeComponent,
+        canActivate: [ verificarLogadoGuard ]
     },
     {
         path: 'cadastro',
@@ -27,18 +28,18 @@ export const routes: Routes = [
     },
     {
         path: 'exercicios',
-        component: ExerciciosComponent
+        component: ExerciciosComponent,
+        canActivate: [ verificarLogadoGuard ]
     },
     {
         path: 'diet',
-        children: [
-            { path: '', component: DietComponent },
-            { path: 'diet-detail/:id', component: DietDetailComponent }
-        ]
+        loadChildren: () => import('./lazyLoading/lazy-loading/lazy-loading.module').then(m => m.LazyLoadingModule),
+        canActivate: [verificarLogadoGuard]
     },
     {
         path: 'profile',
-        component: ProfileComponent
+        component: ProfileComponent,
+        canActivate: [ verificarLogadoGuard ]
     }
 
 ];

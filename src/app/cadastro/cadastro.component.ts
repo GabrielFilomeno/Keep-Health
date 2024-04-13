@@ -51,6 +51,7 @@ export class CadastroComponent {
   armazenarLocalStorage() {
 
     const novoUsuario = {
+      idUsuario: 0,
       nomeUsuario: this.form.value.nome,
       emailUsuario: this.form.value.email,
       dataUsuario: this.form.value.data,
@@ -71,6 +72,7 @@ export class CadastroComponent {
       usuario = [];
     }
 
+    novoUsuario.idUsuario = usuario.length +1;
     usuario.push(novoUsuario);
 
     localStorage.setItem('dadosUsuario', JSON.stringify(usuario));
@@ -121,23 +123,6 @@ export class CadastroComponent {
       this.router.navigate(['/login']);
     }
   }
-
-
-  // cadastrar() {
-  //   if (this.form.controls.nome.errors) {
-  //     alert('Preencha todos os campos')
-  //   } else if (this.endereco.cep == String) {
-  //     alert("Clique em Procurar CEP para confirmar seu CEP")
-  //   } else {
-  //     if (this.form.value.senha === this.form.value.confirmarSenha) {
-  //       this.armazenarLocalStorage();
-  //       alert('a')
-  //       this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Cadastro realizado, faça o login com seu email e senha.' });
-  //       this.router.navigate(['/login']);
-  //     } else {
-  //       alert("Senha e Confirmar senha não estão iguais");
-  //     }
-  //   }
 
   show() {
     this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Message Content' });

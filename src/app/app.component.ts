@@ -12,6 +12,8 @@ import { SharedModule } from '../shared/shared.module';
 export class AppComponent {
   title = 'Keep-Health';
 
+  constructor() {}
+
   ngOnInit(): void {
 
     let dietas = [

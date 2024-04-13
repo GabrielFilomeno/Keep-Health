@@ -26,7 +26,6 @@ export class DietDetailComponent implements OnInit {
     if (cards) {
       let listCards = JSON.parse(cards);
       this.card = listCards.find((card: any) => card.id === +cardId);
-      console.log(this.card)
     }
   }
   voltar() {

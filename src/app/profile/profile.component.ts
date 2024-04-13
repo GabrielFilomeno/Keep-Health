@@ -29,16 +29,20 @@ export class ProfileComponent {
 
   constructor() {
     const dadosUsuarios: any = localStorage.getItem('dadosUsuario');
+    const idUsuarioLogado = Number(localStorage.getItem('idUsuarioLogado'));
 
     if (dadosUsuarios) {
       const listaUsuarios = JSON.parse(dadosUsuarios);
-      const usuario = listaUsuarios[0];
-      this.nome = usuario.nomeUsuario;
-      this.email = usuario.emailUsuario;
-      this.data = usuario.dataUsuario;
-      this.peso = usuario.pesoUsuario;
-      this.altura = usuario.alturaUsuario;
-      this.endereco = usuario.cepUsuario;
+      const usuario = listaUsuarios.find((usuario: { idUsuario: number }) => usuario.idUsuario === idUsuarioLogado);
+
+      if (usuario) {
+        this.nome = usuario.nomeUsuario;
+        this.email = usuario.emailUsuario;
+        this.data = usuario.dataUsuario;
+        this.peso = usuario.pesoUsuario;
+        this.altura = usuario.alturaUsuario;
+        this.endereco = usuario.cepUsuario;
+      }
     }
   }
 
@@ -47,7 +51,6 @@ export class ProfileComponent {
 
     if (dadosUsuarios) {
       let listaUsuarios = JSON.parse(dadosUsuarios);
-      console.log(listaUsuarios)
       listaUsuarios[0].pesoUsuario = this.peso;
       localStorage.setItem('dadosUsuario', JSON.stringify(listaUsuarios));
     }

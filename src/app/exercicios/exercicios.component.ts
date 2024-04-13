@@ -33,11 +33,12 @@ export class ExerciciosComponent {
   listaAtividades: any;
 
   constructor(
-    private messageService: MessageService,
+    private messageService: MessageService
   ) {
   }
 
   ngOnInit(): void {
+
     let atividadesLocalStorage: any[] = [];
     let atividadesJson = JSON.stringify(atividadesLocalStorage)
 
@@ -76,7 +77,7 @@ export class ExerciciosComponent {
   salvarAtividade() {
 
     if (this.data === null || this.data === undefined) {
-      this.messageService.add({ severity: 'info', summary: 'Sticky', detail: 'Coloque a data para salvar a atividade!' });
+      this.messageService.add({ severity: 'info', summary: 'erro', detail: 'Coloque a data para salvar a atividade!' });
     } else {
       let filtrarAtividade = this.atividades.find(atividade => atividade.id === this.idAtividade);
 
